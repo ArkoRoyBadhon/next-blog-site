@@ -15,28 +15,54 @@ const RootLayout = ({ children }) => {
           justifyContent: "space-between",
         }}
       >
+        <div className="demo-logo">
+          <Link
+            style={{
+              color: "Red",
+              fontWeight: "700",
+            }}
+            href="/"
+          >
+            BLOG
+          </Link>
+        </div>
         <div
-          className="demo-logo"
           style={{
-            color: "Red",
-            fontWeight: "700",
+            display: "flex",
           }}
         >
-          BLOG
-        </div>
-        <div style={{
-            display: "flex"
-            
-        }}>
-          <Link style={{
-            marginRight: "10px"
-          }} href="/">Home</Link>
-          <Link style={{
-            marginRight: "10px"
-          }} href="/">About</Link>
-          <Link style={{
-            marginRight: "10px"
-          }} href="/">Profile</Link>
+          <Link
+            style={{
+              marginRight: "10px",
+            }}
+            href="/"
+          >
+            Home
+          </Link>
+          <Link
+            style={{
+              marginRight: "10px",
+            }}
+            href="/"
+          >
+            About
+          </Link>
+          <Link
+            style={{
+              marginRight: "10px",
+            }}
+            href="/dashboard"
+          >
+            DashBoard
+          </Link>
+          <Link
+            style={{
+              marginRight: "10px",
+            }}
+            href="/profile"
+          >
+            Profile
+          </Link>
         </div>
       </Header>
       <Content
