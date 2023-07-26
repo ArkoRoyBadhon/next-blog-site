@@ -1,8 +1,11 @@
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import Link from "next/link";
 const { Header, Content, Footer } = Layout;
+import { useSession, signOut } from "next-auth/react";
 
 const RootLayout = ({ children }) => {
+  const { data: session } = useSession();
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -34,6 +37,7 @@ const RootLayout = ({ children }) => {
           <Link
             style={{
               marginRight: "10px",
+              color: "white",
             }}
             href="/"
           >
@@ -42,27 +46,54 @@ const RootLayout = ({ children }) => {
           <Link
             style={{
               marginRight: "10px",
+              color: "white",
             }}
-            href="/"
+            href="/feedbacks"
           >
-            About
+            Feedbacks
           </Link>
-          <Link
-            style={{
-              marginRight: "10px",
-            }}
-            href="/dashboard"
-          >
-            DashBoard
-          </Link>
-          <Link
-            style={{
-              marginRight: "10px",
-            }}
-            href="/profile"
-          >
-            Profile
-          </Link>
+          {session?.user ? (
+            <div
+              style={{
+                marginRight: "10px",
+                color: "white",
+                cursor: "pointer",
+              }}
+              onClick={() => signOut()}
+            >
+              Logout
+            </div>
+          ) : (
+            <>
+              <Link
+                style={{
+                  marginRight: "10px",
+                  color: "white",
+                }}
+                href="/dashboard"
+              >
+                DashBoard
+              </Link>
+              <Link
+                style={{
+                  marginRight: "10px",
+                  color: "white",
+                }}
+                href="/profile"
+              >
+                Profile
+              </Link>
+              <Link
+                style={{
+                  marginRight: "10px",
+                  color: "white",
+                }}
+                href="/login"
+              >
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </Header>
       <Content
@@ -70,15 +101,6 @@ const RootLayout = ({ children }) => {
           padding: "",
         }}
       >
-        {/* <Breadcrumb
-          style={{
-            margin: "16px 0",
-          }}
-        >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb> */}
         <div
           className="site-layout-content"
           style={{

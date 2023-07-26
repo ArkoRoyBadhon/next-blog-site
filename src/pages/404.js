@@ -1,3 +1,4 @@
+import RootLayout from '@/components/layouts/RootLayout';
 import React from 'react';
 
 const ErrorPage = () => {
@@ -14,3 +15,7 @@ const ErrorPage = () => {
 };
 
 export default ErrorPage;
+
+// ErrorPage.getLayout = function getLayout(page) {
+//     return <MyAPP>{page}</MyAPP>
+//   }
