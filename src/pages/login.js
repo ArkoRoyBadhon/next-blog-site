@@ -15,7 +15,9 @@ const LoginPage = () => {
         className=""
         style={{
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
+          alignItems: 'center'
         }}
       >
         <div
@@ -24,12 +26,26 @@ const LoginPage = () => {
             background: "skyblue",
             padding: "5px 10px",
             cursor: "pointer",
+            marginBottom: "10px"
           }}
           onClick={() => signIn("github",{
             callbackUrl: "http://localhost:3000"
           })}
         >
           Login with Github
+        </div>
+        <div
+          className=""
+          style={{
+            background: "skyblue",
+            padding: "5px 10px",
+            cursor: "pointer",
+          }}
+          onClick={() => signIn("google",{
+            callbackUrl: "http://localhost:3000"
+          })}
+        >
+          Login with Google
         </div>
       </div>
     </div>
