@@ -53,17 +53,6 @@ const RootLayout = ({ children }) => {
             Feedbacks
           </Link>
           {session?.user ? (
-            <div
-              style={{
-                marginRight: "10px",
-                color: "white",
-                cursor: "pointer",
-              }}
-              onClick={() => signOut()}
-            >
-              Logout
-            </div>
-          ) : (
             <>
               <Link
                 style={{
@@ -83,16 +72,27 @@ const RootLayout = ({ children }) => {
               >
                 Profile
               </Link>
-              <Link
+              <div
                 style={{
                   marginRight: "10px",
                   color: "white",
+                  cursor: "pointer",
                 }}
-                href="/login"
+                onClick={() => signOut()}
               >
-                Login
-              </Link>
+                Logout
+              </div>
             </>
+          ) : (
+            <Link
+              style={{
+                marginRight: "10px",
+                color: "white",
+              }}
+              href="/login"
+            >
+              Login
+            </Link>
           )}
         </div>
       </Header>
